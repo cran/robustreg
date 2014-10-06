@@ -1,12 +1,34 @@
-robustRegBS<-function(y,X,tune=4.685,beta,m=TRUE,max.it=1000,tol=1e-10){
+robustRegBS<-function(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-10){
+
+psiBiSquare<-function(r,c){
+true<-abs(r)<=c
+false<-abs(r)>c
+psi<-true*(r*(1-(r/c)^2)^2)+false*0
+return(psi)
+}
+
+derivPsiBiSquare<-function(r,c){
+true<-abs(r)<=c
+false<-abs(r)>c
+psi<-(1-r^2/c^2)*(1-(5*r^2)/c^2)*true+false*0
+return(psi)
+}
+	
 r3<-function(x){return(round(x,3))}
+r2<-function(x){return(round(x,2))}
+
 bi<-FALSE
 if(m==FALSE){bi<-TRUE}
+
+
+modelFrame=model.frame(formula,data)
+X=model.matrix(formula,data)
+y=model.extract(modelFrame,"response")
+
+beta=lm(formula,data)$coefficients
 n<-length(y)
 p<-length(beta)
-X<-as.matrix(X)
-j<-rep(1,times=length(y))
-X<-cbind(j,X)
+
 b<-beta
 if(bi){
  tune<-(tune*sqrt(2*p*n))/(n-2*p)
@@ -54,12 +76,12 @@ if(convergence){
  sec<-sqrt(sbsq*c)
  t<-b/sec
  cat("source","\t","SS","\t","\t","df","\t","MS","\t","\t","F","\n")
- cat("model","\t",r3(ssreg),"\t",dfr,"\t",r3(msr),"\t",r3(F),"\n")
- cat("error","\t",r3(sserr),"\t",dferr,"\t",r3(mse),"\n")
- cat("tot","\t",r3(sstot),"\t",dftot,"\n")
- cat("rsquared ",r3(ssreg/sstot),"\n","\n")
+ cat("model","\t",r2(ssreg),"\t",dfr,"\t",r2(msr),"\t",r2(F),"\n")
+ cat("error","\t",r2(sserr),"\t",dferr,"\t",r2(mse),"\n")
+ cat("tot","\t",r2(sstot),"\t",dftot,"\n")
+ cat("rsquared ",r2(ssreg/sstot),"\n","\n")
  row.names(b)[1]<-"intercept"
- estimates<-r3(cbind(b,sec,t))
+ estimates<-r2(cbind(b,sec,t))
  colnames(estimates)<-c("estimate","se","t")
  print(estimates)
  }

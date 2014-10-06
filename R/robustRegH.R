@@ -1,12 +1,32 @@
-robustRegH<-function(y,X,tune=1.345,beta,m=TRUE,max.it=1000,tol=1e-10){
+robustRegH<-function(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-10){
+
+psiHuber<-function(r,c){
+middle<-abs(r)<=c
+high<- r>c
+low<-r<(-c) 
+h<-middle*r + high*c + low*-c
+return(h)}
+
+derivPsiHuber<-function(r,c){
+true<-abs(r)<=c
+false<-(r<c*-1 || r>c)
+dph<-true*1 +false*0
+return(dph)
+}
+
 r3<-function(x){return(round(x,3))}
+
 bi<-FALSE
 if(m==FALSE){bi<-TRUE}
+
+modelFrame=model.frame(formula,data)
+X=model.matrix(formula,data)
+y=model.extract(modelFrame,"response")
+
+beta=lm(formula,data)$coefficients
 n<-length(y)
 p<-length(beta)
-X<-as.matrix(X)
-j<-rep(1,times=length(y))
-X<-cbind(j,X)
+
 b<-beta
 if(bi){
  tune<-(tune*sqrt(2*p*n))/(n-2*p)
