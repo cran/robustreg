@@ -1,6 +1,11 @@
-0188ac6d34a5740d161ec22e2472ed99 *DESCRIPTION
-9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
-b4c1a8d7ed407f912c581ab5808c6301 *R/robustRegBS.R
-930d69e23b2f748ccbd9ff4dc38b4096 *R/robustRegH.R
-f822c5de477cd59bfd516d93384e3e6e *man/robustRegBS.Rd
-09e30c7998cfa43ae260d48d570d5d0a *man/robustRegH.Rd
+c0abcdb993e9a861f0e1a9e5355b1434 *DESCRIPTION
+46a5fac8bb3dcd5980e4cdf2a5fe9b9f *NAMESPACE
+b88c266e8968e5b121eb3d03e2f826e3 *R/RcppExports.R
+1e8ebe3e51fe2e0b171784a33227a6a3 *R/robustRegBS.R
+9a8332b76194d35437a6bc43877ce401 *R/robustRegH.R
+662770136dc394b9f848b0d8f78caa73 *man/fit.Rd
+f3336d3bee3655f0c1d53a09e05673ec *man/robustRegBS.Rd
+4ae84f707ff3147297badacc163080d2 *man/robustRegH.Rd
+2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars
+951af78c6c66f3aab85ab2c12084dcd5 *src/RcppExports.cpp
+eaed8dab7dc26cc6931c9e6adf58485f *src/fit.cpp

@@ -4,7 +4,7 @@
 \description{
 Using iteratively reweighted least squares (IRLS), the function calculates the optimal weights to perform m-estimator or bounded influence regression.  Returns robust beta estimates and prints robust ANOVA table}
 \usage{
-robustRegH(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-10)}
+robustRegH(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-6,anova.table=FALSE)}
 \details{
 M-estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show outliers.  Least squares estimates of beta should be used as starting points to achieve convergence.
 
@@ -16,6 +16,7 @@ Bounded influence estimates of beta should be used when evaluating least squares
 \item{m}{If \code{TRUE}, calculates m estimates of beta.  If \code{FALSE}, calculates bounded influence estimates of beta}
 \item{max.it}{Maximum number of iterations to achieve convergence in IRLS algorithm}
 \item{tol}{Tolerance level in determining convergence}
+\item{anova.table}{If \code{TRUE}, prints robust ANOVA table}
 }
                                                                                                                                             \author{Ian M. Johnson \email{ian@alpha-analysis.com}}
 \note{Original package written in 2006}
