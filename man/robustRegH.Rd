@@ -11,7 +11,7 @@ M-estimates of beta should be used when evaluating least squares estimates of be
 Bounded influence estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show large values of the "Hat Matrix" diagonals and outliers.}
 \arguments{
 \item{formula}{Model}
-\item{data}{A data frame or matrix of data}
+\item{data}{A data frame containing the variables in the model.}
 \item{tune}{Tuning Constant.  Default value of 1.345 is 95\% asymptotically efficient against outliers}
 \item{m}{If \code{TRUE}, calculates m estimates of beta.  If \code{FALSE}, calculates bounded influence estimates of beta}
 \item{max.it}{Maximum number of iterations to achieve convergence in IRLS algorithm}

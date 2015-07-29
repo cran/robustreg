@@ -1,5 +1,7 @@
 useDynLib(robustreg)
+importFrom(stats, lm.fit, lm.influence, lm.wfit, median, model.extract, model.frame, model.matrix)
+importFrom(Matrix,Diagonal)
 importFrom(Rcpp, evalCpp)
-import(Matrix)
-exportPattern("^[[:alpha:]]+")
-
+export(robustRegH)
+export(robustRegBS)
+export(fit_rcpp)

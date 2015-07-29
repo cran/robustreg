@@ -2,10 +2,10 @@
 \alias{fit_rcpp}
 \docType{package}
 \title{
-Predict Y from X and b
+Predict y from X and b
 }
 \description{
-Predict Y from X and b
+Predict y vector from X design matrix and b vector 
 }
 \usage{
 fit_rcpp(X,b)
