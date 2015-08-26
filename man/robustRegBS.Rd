@@ -1,10 +1,10 @@
 \name{robustRegBS}
 \alias{robustRegBS}
-\title{Robust Regression Function using Bisquare Psi Function}
+\title{Robust Fitting of Linear Models using Bisquare Psi Function}
 \description{
 Using iteratively reweighted least squares (IRLS), the function calculates the optimal weights to perform m-estimator or bounded influence regression.  Returns robust beta estimates and prints robust ANOVA table.}
 \usage{
-robustRegBS(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-6,anova.table=FALSE)}
+robustRegBS(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-5,anova.table=FALSE)}
 \details{
 M-estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show outliers.  Least squares estimates of beta should be used as starting points to achieve convergence.
 

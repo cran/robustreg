@@ -1,11 +1,11 @@
-robustRegH<-function(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-6,anova.table=FALSE){
+robustRegH<-function(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-5,anova.table=FALSE){
 
-psiHuber<-function(r,c){
-middle<-abs(r)<=c
-high<- r>c
-low<-r<(-c) 
-h<-middle*r + high*c + low*-c
-return(h)}
+#psiHuber<-function(r,c){
+#middle<-abs(r)<=c
+#high<- r>c
+#low<-r<(-c) 
+#h<-middle*r + high*c + low*-c
+#return(h)}
 
 bi<-FALSE
 if(m==FALSE){bi<-TRUE}
@@ -27,16 +27,18 @@ convergence<-FALSE
 for(i in 1:max.it){
  b_temp<-b
  r<-y-fit_rcpp(X,b) #replaced r<-y-X%*%b
- s<-median(abs(r-median(r)))/.6745
-
- if(m){rstar<-(r/s)}else{rstar<-r/(s*pi)}
+ s<-mad_rcpp(r) #replaced s<-median(abs(r-median(r)))/.6745
  
- psiH<-psiHuber(rstar,tune)
+ #rstar<-ifelse(m,r/s,r/(s*pi))
+ if(m){rstar<-(r/s)}else{rstar<-r/(s*pi)}
+
+
+ psiH<-psiHuber_rcpp(rstar,tune)
  w<-psiH/rstar
  b<-lm.wfit(x=X,y=y,w=w[,1])$coefficients
 
  
- if(i>10){
+ if(i>4){
   if(sum(abs(b-b_temp))<tol){
    cat("\nRobust Regression with Huber Function\n")
    cat("Convergence achieved after:",i,"iterations\n")

@@ -22,3 +22,66 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// median_rcpp
+double median_rcpp(NumericVector x);
+RcppExport SEXP robustreg_median_rcpp(SEXP xSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP );
+        double __result = median_rcpp(x);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// mad_rcpp
+double mad_rcpp(NumericVector r, double scale_factor = 1.4826);
+RcppExport SEXP robustreg_mad_rcpp(SEXP rSEXP, SEXP scale_factorSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type r(rSEXP );
+        Rcpp::traits::input_parameter< double >::type scale_factor(scale_factorSEXP );
+        double __result = mad_rcpp(r, scale_factor);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// psiBS_rcpp
+NumericVector psiBS_rcpp(NumericVector r, double c);
+RcppExport SEXP robustreg_psiBS_rcpp(SEXP rSEXP, SEXP cSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type r(rSEXP );
+        Rcpp::traits::input_parameter< double >::type c(cSEXP );
+        NumericVector __result = psiBS_rcpp(r, c);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// psiHuber_rcpp
+NumericVector psiHuber_rcpp(NumericVector r, double c);
+RcppExport SEXP robustreg_psiHuber_rcpp(SEXP rSEXP, SEXP cSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericVector >::type r(rSEXP );
+        Rcpp::traits::input_parameter< double >::type c(cSEXP );
+        NumericVector __result = psiHuber_rcpp(r, c);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

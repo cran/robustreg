@@ -5,3 +5,19 @@ fit_rcpp <- function(X, b) {
     .Call('robustreg_fit_rcpp', PACKAGE = 'robustreg', X, b)
 }
 
+median_rcpp <- function(x) {
+    .Call('robustreg_median_rcpp', PACKAGE = 'robustreg', x)
+}
+
+mad_rcpp <- function(r, scale_factor = 1.4826) {
+    .Call('robustreg_mad_rcpp', PACKAGE = 'robustreg', r, scale_factor)
+}
+
+psiBS_rcpp <- function(r, c) {
+    .Call('robustreg_psiBS_rcpp', PACKAGE = 'robustreg', r, c)
+}
+
+psiHuber_rcpp <- function(r, c) {
+    .Call('robustreg_psiHuber_rcpp', PACKAGE = 'robustreg', r, c)
+}
+

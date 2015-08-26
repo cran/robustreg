@@ -1,12 +1,12 @@
 \name{robustRegH}
 \alias{robustRegH}
-\title{Robust Regression Function using Huber Psi Function}
+\title{Robust Fitting of Linear Models using Huber Psi Function}
 \description{
 Using iteratively reweighted least squares (IRLS), the function calculates the optimal weights to perform m-estimator or bounded influence regression.  Returns robust beta estimates and prints robust ANOVA table}
 \usage{
-robustRegH(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-6,anova.table=FALSE)}
+robustRegH(formula,data,tune=1.345,m=TRUE,max.it=1000,tol=1e-5,anova.table=FALSE)}
 \details{
-M-estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show outliers.  Least squares estimates of beta should be used as starting points to achieve convergence.
+M-estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show outliers.  Least squares estimates of beta are used as starting points to achieve convergence.
 
 Bounded influence estimates of beta should be used when evaluating least squares estimates of beta and diagnostics show large values of the "Hat Matrix" diagonals and outliers.}
 \arguments{
@@ -20,9 +20,9 @@ Bounded influence estimates of beta should be used when evaluating least squares
 }
                                                                                                                                             \author{Ian M. Johnson \email{ian@alpha-analysis.com}}
 \note{Original package written in 2006}
-\references{Huber, 
+\references{P. J. Huber (1981) Robust Statistics. Wiley. 
  
- Birch, Robust F-Test, 1983}
+Birch (1983) Robust F-Test}
 \seealso{robustRegBS()}
 \examples{
 data(stackloss)

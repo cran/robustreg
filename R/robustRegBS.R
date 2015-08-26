@@ -1,11 +1,4 @@
-robustRegBS<-function(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-6,anova.table=FALSE){
-
-psiBiSquare<-function(r,c){
-true<-abs(r)<=c
-false<-abs(r)>c
-psi<-true*(r*(1-(r/c)^2)^2)+false*0
-return(psi)
-}
+robustRegBS<-function(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-5,anova.table=FALSE){
 
 bi<-FALSE
 if(m==FALSE){bi<-TRUE}
@@ -28,16 +21,16 @@ convergence<-FALSE
 for(i in 1:max.it){
  b_temp<-b
  r<-y-fit_rcpp(X,b) #replaced r<-y-X%*%b
- s<-median(abs(r-median(r)))/.6745
+ s<-mad_rcpp(r) #replaced s<-median(abs(r-median(r)))/.6745
 
  if(m){rstar<-(r/s)}else{rstar<-r/(s*pi)}
  
- psiBS<-psiBiSquare(rstar,tune)
- w<-psiBS/rstar
+ psiBS<-psiBS_rcpp(rstar,tune)
+ w<-psiBS/rstar #replaced 
  b<-lm.wfit(x=X,y=y,w=w[,1])$coefficients
 
  
- if(i>10){
+ if(i>4){
   if(sum(abs(b-b_temp))<tol){
    cat("\nRobust Regression with Bisquare Function\n")
    cat("Convergence achieved after:",i,"iterations\n")
