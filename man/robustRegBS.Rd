@@ -2,7 +2,7 @@
 \alias{robustRegBS}
 \title{Robust Fitting of Linear Models using Bisquare Psi Function}
 \description{
-Using iteratively reweighted least squares (IRLS), the function calculates the optimal weights to perform m-estimator or bounded influence regression.  Returns robust beta estimates and prints robust ANOVA table.}
+Using iteratively reweighted least squares (IRLS), the function calculates the optimal weights to perform m-estimator or bounded influence regression.  Returns robust beta estimates, mean squared error (MSE) and prints robust ANOVA table.}
 \usage{
 robustRegBS(formula,data,tune=4.685,m=TRUE,max.it=1000,tol=1e-5,anova.table=FALSE)}
 \details{

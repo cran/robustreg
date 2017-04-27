@@ -1,6 +1,6 @@
 Package: robustreg
-Version: 0.1-9
-Date: 2015-08-25
+Version: 0.1-10
+Date: 2017-04-25
 Title: Robust Regression Functions
 Author: Ian M. Johnson <ian@alpha-analysis.com>
 Maintainer: Ian M. Johnson <ian@alpha-analysis.com>
@@ -10,6 +10,6 @@ License: GPL (>= 2)
 Imports: stats (>= 3.0.0), Matrix (>= 1.1.0), Rcpp (>= 0.11.3)
 LinkingTo: Rcpp, RcppArmadillo
 NeedsCompilation: yes
-Packaged: 2015-08-25 19:58:33 UTC; alphaanalysis
+Packaged: 2017-04-26 05:20:25 UTC; alphaanalysis
 Repository: CRAN
-Date/Publication: 2015-08-26 08:51:12
+Date/Publication: 2017-04-27 10:18:04 UTC
