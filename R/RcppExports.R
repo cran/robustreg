@@ -2,22 +2,22 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 fit_rcpp <- function(X, b) {
-    .Call('robustreg_fit_rcpp', PACKAGE = 'robustreg', X, b)
+    .Call(`_robustreg_fit_rcpp`, X, b)
 }
 
 median_rcpp <- function(x) {
-    .Call('robustreg_median_rcpp', PACKAGE = 'robustreg', x)
+    .Call(`_robustreg_median_rcpp`, x)
 }
 
 mad_rcpp <- function(r, scale_factor = 1.4826) {
-    .Call('robustreg_mad_rcpp', PACKAGE = 'robustreg', r, scale_factor)
+    .Call(`_robustreg_mad_rcpp`, r, scale_factor)
 }
 
 psiBS_rcpp <- function(r, c) {
-    .Call('robustreg_psiBS_rcpp', PACKAGE = 'robustreg', r, c)
+    .Call(`_robustreg_psiBS_rcpp`, r, c)
 }
 
 psiHuber_rcpp <- function(r, c) {
-    .Call('robustreg_psiHuber_rcpp', PACKAGE = 'robustreg', r, c)
+    .Call(`_robustreg_psiHuber_rcpp`, r, c)
 }
 

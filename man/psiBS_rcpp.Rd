@@ -14,6 +14,7 @@ psiBS_rcpp(r,c)
 \item{r}{A numeric vector}
 \item{c}{Tuning constant}
 }
+\author{Ian M. Johnson}
 \examples{
 \dontrun{
 psiBS_rcpp(r,c)

@@ -18,7 +18,7 @@ Bounded influence estimates of beta should be used when evaluating least squares
 \item{tol}{Tolerance level in determining convergence}
 \item{anova.table}{If \code{TRUE}, prints robust ANOVA table}
 }
-                                                                                                                                            \author{Ian M. Johnson \email{ian@alpha-analysis.com}}
+                                                                                                                                            \author{Ian M. Johnson}
 \note{Original package written in 2006}
 \references{P. J. Huber (1981) Robust Statistics. Wiley. 
  

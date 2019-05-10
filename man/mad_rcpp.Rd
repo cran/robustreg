@@ -14,8 +14,7 @@ mad_rcpp(r,scale_factor = 1.4826)
 \item{r}{A numeric vector}
 \item{scale_factor}{Scale factor}
 }
+\author{Ian M. Johnson}
 \examples{
-\dontrun{
-mad_rcpp(r,scale_factor = 1.4826)
-}
+mad(1:100)
 }

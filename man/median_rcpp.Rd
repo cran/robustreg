@@ -13,8 +13,7 @@ median_rcpp(x)
 \arguments{
 \item{x}{A numeric vector containing the values whose median is to be computed.}
 }
+\author{Ian M. Johnson}
 \examples{
-\dontrun{
-median_rcpp(x)
-}
+median_rcpp(1:100)
 }

@@ -14,8 +14,12 @@ fit_rcpp(X,b)
 \item{X}{Design matrix}
 \item{b}{Estimates of beta}
 }
+\author{Ian M. Johnson}
 \examples{
-\dontrun{
-fit_rcpp(X,b)
-}
+j <- rep(1, 5)
+x1 <- rnorm(5)
+x2 <- rnorm(5, 10, 20)
+X = as.matrix(data.frame(j, x1, x2))
+b <- 1:3
+fit_rcpp(X, b)
 }

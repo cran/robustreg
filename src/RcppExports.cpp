@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // fit_rcpp
 arma::mat fit_rcpp(arma::mat X, arma::vec b);
-RcppExport SEXP robustreg_fit_rcpp(SEXP XSEXP, SEXP bSEXP) {
+RcppExport SEXP _robustreg_fit_rcpp(SEXP XSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -20,7 +20,7 @@ END_RCPP
 }
 // median_rcpp
 double median_rcpp(NumericVector x);
-RcppExport SEXP robustreg_median_rcpp(SEXP xSEXP) {
+RcppExport SEXP _robustreg_median_rcpp(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -31,7 +31,7 @@ END_RCPP
 }
 // mad_rcpp
 double mad_rcpp(NumericVector r, double scale_factor);
-RcppExport SEXP robustreg_mad_rcpp(SEXP rSEXP, SEXP scale_factorSEXP) {
+RcppExport SEXP _robustreg_mad_rcpp(SEXP rSEXP, SEXP scale_factorSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -43,7 +43,7 @@ END_RCPP
 }
 // psiBS_rcpp
 NumericVector psiBS_rcpp(NumericVector r, double c);
-RcppExport SEXP robustreg_psiBS_rcpp(SEXP rSEXP, SEXP cSEXP) {
+RcppExport SEXP _robustreg_psiBS_rcpp(SEXP rSEXP, SEXP cSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -55,7 +55,7 @@ END_RCPP
 }
 // psiHuber_rcpp
 NumericVector psiHuber_rcpp(NumericVector r, double c);
-RcppExport SEXP robustreg_psiHuber_rcpp(SEXP rSEXP, SEXP cSEXP) {
+RcppExport SEXP _robustreg_psiHuber_rcpp(SEXP rSEXP, SEXP cSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -64,4 +64,18 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(psiHuber_rcpp(r, c));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_robustreg_fit_rcpp", (DL_FUNC) &_robustreg_fit_rcpp, 2},
+    {"_robustreg_median_rcpp", (DL_FUNC) &_robustreg_median_rcpp, 1},
+    {"_robustreg_mad_rcpp", (DL_FUNC) &_robustreg_mad_rcpp, 2},
+    {"_robustreg_psiBS_rcpp", (DL_FUNC) &_robustreg_psiBS_rcpp, 2},
+    {"_robustreg_psiHuber_rcpp", (DL_FUNC) &_robustreg_psiHuber_rcpp, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_robustreg(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
